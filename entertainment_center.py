@@ -71,10 +71,20 @@ howtogetawaywithmurder=media.Tvshow("How to get away with Murder",
 gameofthrones=media.Tvshow("Game of Thrones",
                                "Peter Dinklage, Lena Headey, Emilia Clarke, Kit Harington, Sophie Turner and Maisie Williams",
                                "Several noble families fight for control of the mythical land of Westeros.",
-                               "http://ia.media-imdb.com/images/M/MV5BMTYwOTEzMDMzMl5BMl5BanBnXkFtZTgwNzExODIzNzE@._V1_SX214_AL_.jpg",
+                               "http://vignette3.wikia.nocookie.net/gameofthrones/images/2/2c/Season_1_Poster.jpg/revision/latest?cb=20110406150536",
                                "Thursdays on HBO")
+sherlock=media.Tvshow("Sherlock",
+                                "Benedict Cumberbatch, Martin Freeman and Una Stubbs",
+                                "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",                                
+                                "http://ia.media-imdb.com/images/M/MV5BNTA2MTE1NDI5OV5BMl5BanBnXkFtZTcwNzM2MzU3Nw@@._V1_SY317_CR21,0,214,317_AL_.jpg",
+                                 "Sundays on BBC")
+orangeisthenewblack=media.Tvshow("Orange is the New Black",
+                                "Taylor Schilling, Michael Harney, Kate Mulgrew and Danielle Brooks",
+                                "The story of Piper Chapman, a woman in her thirties who is sentenced to fifteen months in prison after being convicted of a decade-old crime of transporting money to her drug-dealing girlfriend.",
+                                "https://fanart.tv/detailpreview/fanart/tv/264586/seasonposter/orange-is-the-new-black-536935dae2843.jpg",
+                                "Netflix Original")
 
-tvshows = [friends, downtonabbey,howtogetawaywithmurder, gameofthrones]
+tvshows = [friends, downtonabbey,howtogetawaywithmurder, gameofthrones, sherlock, orangeisthenewblack]
 
 fresh_tomatoes.open_videos_page(movies,tvshows)
 
