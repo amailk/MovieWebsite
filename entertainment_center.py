@@ -1,5 +1,8 @@
 import fresh_tomatoes
 import media
+
+#list of favourite movies
+
 harrypotter= media.Movie("Harry Potter",
                          "Daniel Radcliffe, Emma Watson and Rupert Grint",
                          "A story about the boy who lived",
@@ -46,6 +49,33 @@ fastfive = media.Movie("Fast Five",
                        "https://www.youtube.com/watch?v=mw2AqdB5EVA")
 movies = [harrypotter, spy, blackmass, colonia, amelie, danishgirl, pitchperfect, shestheman, fastfive]
 
-fresh_tomatoes.open_movies_page(movies)
+#list of favourite tv shows
+
+friends= media.Tvshow("Friends",
+         "Jennifer Aniston, Courteney Cox, Maththew Perry, Lisa Kudrow, Matt LeBlanc and David Schwimmer",
+         "Follows the lives of six 20-something friends living in Manhattan.",
+         "http://ia.media-imdb.com/images/M/MV5BMTg4NzEyNzQ5OF5BMl5BanBnXkFtZTYwNTY3NDg4._V1._CR24,0,293,443_SX214_AL_.jpg",
+         "Thursdays on TBS")
+
+downtonabbey=media.Tvshow("Downton Abbey",
+              "Hugh Bonneville, Laura Carmichael, Jim Carter, Brendan Coyle, Michelle Dockery, Joanne Froggatt and Maggie Smith",
+              "A chronicle of the lives of the Crawley family and their servants, beginning in the years leading up to World War I.",
+              "http://ia.media-imdb.com/images/M/MV5BMTg2ODI2NTUwN15BMl5BanBnXkFtZTgwMTMwMzU0MjE@._V1_SY317_CR38,0,214,317_AL_.jpg",
+              "Sundays on PBS")
+              
+howtogetawaywithmurder=media.Tvshow("How to get away with Murder",
+                        "Viola Davis, Matt McGorry, Billy Brown, Alfred Enoch, Jack Falahee and Karla Souza",
+                        "A group of ambitious law students and their brilliant criminal defense professor become involved in a twisted murder plot that promises to change the course of their lives.",
+                        "http://ia.media-imdb.com/images/M/MV5BNTMzNDEzNTcwMV5BMl5BanBnXkFtZTgwMjc5Mjg5NjE@._V1_SY317_CR0,0,214,317_AL_.jpg",
+                        "Thursdays on abc")
+gameofthrones=media.Tvshow("Game of Thrones",
+                               "Peter Dinklage, Lena Headey, Emilia Clarke, Kit Harington, Sophie Turner and Maisie Williams",
+                               "Several noble families fight for control of the mythical land of Westeros.",
+                               "http://ia.media-imdb.com/images/M/MV5BMTYwOTEzMDMzMl5BMl5BanBnXkFtZTgwNzExODIzNzE@._V1_SX214_AL_.jpg",
+                               "Thursdays on HBO")
+
+tvshows = [friends, downtonabbey,howtogetawaywithmurder, gameofthrones]
+
+fresh_tomatoes.open_videos_page(movies,tvshows)
 
 

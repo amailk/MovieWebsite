@@ -1,10 +1,4 @@
-import webbrowser
-import os
-import re
 
-
-# Styles and scripting for the page
-main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,11 +80,7 @@ main_page_head = '''
         });
     </script>
 </head>
-'''
 
-
-# The main page layout and title bar
-main_page_content = '''
   <body>
     <!-- Trailer Video Modal -->
     <div class="modal" id="trailer">
@@ -116,79 +106,61 @@ main_page_content = '''
       </div>
     </div>
     <div class="container">
-      {video_tiles}
+      
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="VyHV0BRtdxo" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.tribute.ca/harrypotter/images/HP1/harry_potter_and_the_sorcerers_stone_poster5.jpg" width="220" height="342">
+    <h2>Harry Potter</h2>
+    <h3>Daniel Radcliffe, Emma Watson and Rupert Grint</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="ltijEmlyqlg" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BNjI5OTQ0MDQxM15BMl5BanBnXkFtZTgwMzcwNjMyNTE@._V1_SX214_AL_.jpg" width="220" height="342">
+    <h2>Spy</h2>
+    <h3>Jude Law, Raad Rawi and Melissa McCarthy</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="CE3e3hGF2jc" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BNzg0ODI3NDQxNF5BMl5BanBnXkFtZTgwMzgzNDA0NjE@._V1_SX214_AL_.jpg" width="220" height="342">
+    <h2>Blackmass</h2>
+    <h3>Johnny Depp, Joel Edgerton and Benedict Cumberbatch</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="SiVAGDTmlpY" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.fashiongonerogue.com/wp-content/uploads/2015/09/Colonia-Emma-Watson-Movie-Poster.jpg" width="220" height="342">
+    <h2>Colonia</h2>
+    <h3>Emma Watson, Daniel Bruhl and Michael Nyqvist</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="2UT5xaAfxWU" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTYzNjkxMTczOF5BMl5BanBnXkFtZTgwODg5NDc2MjE@._V1_SY317_CR0,0,214,317_AL_.jpg" width="220" height="342">
+    <h2>Amelie</h2>
+    <h3>Audrey Tautou, Mathieu Kassovitz and Rufus</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="d88APYIGkjk" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjA0NjA4NjE2Nl5BMl5BanBnXkFtZTgwNzIxNTY2NjE@._V1_SX214_AL_.jpg" width="220" height="342">
+    <h2>Danish Girl</h2>
+    <h3>Eddie Redmayne, Alicia Vikander and Amber Heard</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="F03N-ApQdmw" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTcyMTMzNzE5N15BMl5BanBnXkFtZTcwNzg5NjM5Nw@@._V1_SX214_AL_.jpg" width="220" height="342">
+    <h2>Pitch Perfect</h2>
+    <h3>Anna Kendrick, Rebel Wilson and Skylar Astin</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="_UiPki2uxM8" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjEyMzAzMDk1Ml5BMl5BanBnXkFtZTcwNjg0OTEzMQ@@._V1_SX214_AL_.jpg" width="220" height="342">
+    <h2>She's the Man</h2>
+    <h3>Amanda Bynes, Channing Tatum and Laura Ramsey</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="mw2AqdB5EVA" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTUxNTk5MTE0OF5BMl5BanBnXkFtZTcwMjA2NzY3NA@@._V1_SY317_CR0,0,214,317_AL_.jpg" width="220" height="342">
+    <h2>Fast Five</h2>
+    <h3>Paul Walker, Vin Diesel and Jordana Brewster</h3>
+</div>
+
     </div>
   </body>
 </html>
-'''
-
-
-# A single video entry html template
-video_tile_content = '''
-<div class="col-md-6 col-lg-4 video-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{title}</h2>
-    <h3>{main_actors}</h3>
-</div>
-'''
-
-tvshow_tile_content = '''
-<div class="col-md-6 col-lg-4 video-tile text-center">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{title}</h2>
-    <h3>{main_actors}</h3>
-    <h3>{channel}</h3>
-</div>
-'''
-
-
-def create_video_tiles_content(videos):
-    # The HTML content for this section of the page
-    content = ''
-    for video in videos:
-
-        if video.is_movie():
-            # Extract the youtube ID from the url
-            youtube_id_match = re.search(
-                r'(?<=v=)[^&#]+', video.trailer_youtube_url)
-            youtube_id_match = youtube_id_match or re.search(
-                r'(?<=be/)[^&#]+', video.trailer_youtube_url)
-            trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
-                                  else None)
-
-            # Append the tile for the video with its content filled in
-            content += video_tile_content.format(
-                title=video.title,
-                main_actors=video.main_actors,
-                poster_image_url=video.poster_image_url,
-                trailer_youtube_id=trailer_youtube_id
-            )
-        else:
-            content += tvshow_tile_content.format(
-                title=video.title,
-                main_actors=video.main_actors,
-                poster_image_url = video.poster_image_url,
-                channel = video.channel)
-    return content
-
-
-def open_videos_page(movies,tvshows):
-    # Create or overwrite the output file
-    output_file = open('fresh_tomatoes.html', 'w')
-
-    # Replace the video tiles placeholder generated content
-    rendered_content = main_page_content.format(
-        video_tiles=create_video_tiles_content(movies))
-
-    # Output the file
-    output_file.write(main_page_head + rendered_content)
-    output_file.close()
-
-    video_page = open('tv_shows.html', 'w')
-    rendered_content = main_page_content.format(video_tiles=create_video_tiles_content(tvshows))
-    video_page.write(main_page_head + rendered_content)
-    video_page.close()
-
-    # open the output file in the browser (in a new tab, if possible)
-    url = os.path.abspath(output_file.name)
-    webbrowser.open('file://' + url, new=2)
